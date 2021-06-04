@@ -13,6 +13,7 @@ pip 21.1.2
 ```
 $ pip install ibm-watson
 $ pip install python-dotenv
+$ pip install pandas
 ```
 ### step2
 ```

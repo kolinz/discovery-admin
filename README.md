@@ -53,7 +53,7 @@ $ python discovery-docs-tool.py delete document-id
 $ python discovery-docs-tool.py delete f627e521-d9fe-458d-xxxxxxxxxxxxx
 ```
 ### Get a list of documents
-un the command.
+Run the command.
 ```
 $ python discovery-docs-tool.py docslist metadata_field
 ```

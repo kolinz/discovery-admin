@@ -1,4 +1,5 @@
 # coding: UTF-8
+import os
 import json
 import sys
 import settings
@@ -11,15 +12,21 @@ url = settings.url
 environment_id = settings.environment_id
 collection_id = settings.collection_id
 
-if args[1] == 'delete':
-    document_id = args[2]
-    
-    authenticator = IAMAuthenticator(apikey)
-    discovery = DiscoveryV1(
-        version='2019-04-30',
-        authenticator=authenticator
+authenticator = IAMAuthenticator(apikey)
+discovery = DiscoveryV1(
+    version='2019-04-30',
+    authenticator=authenticator
     )
-    
+
+if args[1] == 'add':
+    file_path = args[2]
+    discovery.set_service_url(url)
+    with open(os.path.join(os.getcwd(), file_path)) as fileinfo:
+        add_doc = discovery.add_document(environment_id, collection_id, file=fileinfo).get_result()
+    print(json.dumps(add_doc, indent=2))
+
+if args[1] == 'delete':
+    document_id = args[2]    
     discovery.set_service_url(url)
     delete_doc = discovery.delete_document(environment_id, collection_id, document_id).get_result()
     print(json.dumps(delete_doc, indent=2))

@@ -52,3 +52,12 @@ $ python discovery-admin/discovery-docs-tool.py delete document-id
 ```
 $ python discovery-admin/discovery-docs-tool.py delete f627e521-d9fe-458d-xxxxxxxxxxxxx
 ```
+### Get a list of documents
+un the command.
+```
+$ python discovery-admin/discovery-docs-tool.py docslist metadata_field
+```
+#### example
+```
+$ python discovery-admin/discovery-docs-tool.py docslist extracted_metadata.filename
+```

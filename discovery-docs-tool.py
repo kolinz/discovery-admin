@@ -3,6 +3,7 @@ import os
 import json
 import sys
 import requests
+import pandas
 import settings
 from ibm_watson import DiscoveryV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator

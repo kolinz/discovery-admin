@@ -20,10 +20,10 @@ discovery = DiscoveryV1(
     )
 
 if args[1] == 'docslist':
-    metadata = args[2]
+    metadata_field = args[2]
     params = (
         ('version', '2019-04-30'),
-        ('return', metadata),
+        ('return', metadata_field),
         )
     response = requests.get(url+'/v1/environments/'+environment_id+'/collections/'+collection_id+'/query', params=params, auth=('apikey', apikey))
     data = response.json()

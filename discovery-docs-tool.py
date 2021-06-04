@@ -2,6 +2,7 @@
 import os
 import json
 import sys
+import requests
 import settings
 from ibm_watson import DiscoveryV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
@@ -17,6 +18,16 @@ discovery = DiscoveryV1(
     version='2019-04-30',
     authenticator=authenticator
     )
+
+if args[1] == 'docslist':
+    metadata = args[2]
+    params = (
+        ('version', '2019-04-30'),
+        ('return', metadata),
+        )
+    response = requests.get(url+'/v1/environments/'+environment_id+'/collections/'+collection_id+'/query', params=params, auth=('apikey', apikey))
+    data = response.json()
+    print(json.dumps(data, indent=2))
 
 if args[1] == 'add':
     file_path = args[2]

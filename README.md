@@ -43,21 +43,30 @@ $ python discovery-docs-tool.py add /home/user1/sample.json
 #### Error information
 - The Error occurred in PDF with Japanese file name. But I was able to upload a JSON or HTML file with a Japanese file name.
 
+### Get a list of documents
+Run the command.
+```
+$ python discovery-docs-tool.py docslist
+```
+#### output example
+```
+                                     id  result_metadata.confidence  result_metadata.score   extracted_metadata.filename
+0    8daac09bce0a793064xxxxxxxxxxxxxxxx                           0                      1              sample-docs.json
+1      e55b213a9dfb91bcdddddddddddddddd                           0                      1    2020-callforcode-intro.pdf
+2      290b6f7cc2e3f70aaaaaaaaaaaaaaaaa                           0                      1  telework-advice-testdata.csv
+3  90652dbc-966a-4bbbbbbbbbbbbbbbbbbbbb                           0                      1                   sample.html
+4  b15dd4a8-86ca-cccccccccccccccccccccc                           0                      1               kaishi-web.html
+5  dbd41633-354b-eeeeeeeeeeeeeeeeeeeeee                           0                      1                    ジェイソン.json
+6  b4cdefca-0c17-ffffffffffffffffffffff                           0                      1                   sample.html
+7  8a1e13db-0a3f-gggggggggggggggggggggg                           0                      1               jsonsample.json
+```
+
 ### Delete a document
-Run the command. Get a document-id in your web console of Watson Discovery Service.
+Run the command. Please get a document-id from "Get a list of documents" command.
 ```
 $ python discovery-docs-tool.py delete document-id
 ```
 #### example
 ```
 $ python discovery-docs-tool.py delete f627e521-d9fe-458d-xxxxxxxxxxxxx
-```
-### Get a list of documents
-Run the command.
-```
-$ python discovery-docs-tool.py docslist metadata_field
-```
-#### example
-```
-$ python discovery-docs-tool.py docslist extracted_metadata.filename
 ```

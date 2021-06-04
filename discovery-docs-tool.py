@@ -21,7 +21,7 @@ discovery = DiscoveryV1(
 if args[1] == 'add':
     file_path = args[2]
     discovery.set_service_url(url)
-    with open(os.path.join(os.getcwd(), file_path)) as fileinfo:
+    with open(file_path) as fileinfo:
         add_doc = discovery.add_document(environment_id, collection_id, file=fileinfo).get_result()
     print(json.dumps(add_doc, indent=2))
 

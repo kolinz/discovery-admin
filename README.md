@@ -1,4 +1,6 @@
 # discovery-admin
+IBM Watson Discovery document management tool. Currently, only the delete function has been implemented.
+
 ## Confirmed environment
 ```
 $ python -V

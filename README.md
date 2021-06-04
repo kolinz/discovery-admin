@@ -34,11 +34,11 @@ collection_id = "your collection_id in Watson discovery"
 ### Add(Upload) a document
 Run the command.
 ```
-$ python discovery-admin/discovery-docs-tool.py add file-path
+$ python discovery-docs-tool.py add file-path
 ```
 #### example
 ```
-$ python discovery-admin/discovery-docs-tool.py add /home/user1/sample.json
+$ python discovery-docs-tool.py add /home/user1/sample.json
 ```
 #### Error information
 - The Error occurred in PDF with Japanese file name. But I was able to upload a JSON or HTML file with a Japanese file name.
@@ -46,18 +46,18 @@ $ python discovery-admin/discovery-docs-tool.py add /home/user1/sample.json
 ### Delete a document
 Run the command. Get a document-id in your web console of Watson Discovery Service.
 ```
-$ python discovery-admin/discovery-docs-tool.py delete document-id
+$ python discovery-docs-tool.py delete document-id
 ```
 #### example
 ```
-$ python discovery-admin/discovery-docs-tool.py delete f627e521-d9fe-458d-xxxxxxxxxxxxx
+$ python discovery-docs-tool.py delete f627e521-d9fe-458d-xxxxxxxxxxxxx
 ```
 ### Get a list of documents
 un the command.
 ```
-$ python discovery-admin/discovery-docs-tool.py docslist metadata_field
+$ python discovery-docs-tool.py docslist metadata_field
 ```
 #### example
 ```
-$ python discovery-admin/discovery-docs-tool.py docslist extracted_metadata.filename
+$ python discovery-docs-tool.py docslist extracted_metadata.filename
 ```

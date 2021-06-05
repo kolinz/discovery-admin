@@ -6,7 +6,7 @@ import requests
 import settings
 from ibm_watson import DiscoveryV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-from pandas.io.json import json_normalize
+from pandas import json_normalize
 
 args = sys.argv
 apikey = settings.apikey
@@ -24,6 +24,18 @@ if args[1] == 'docslist':
     params = (
         ('version', '2019-04-30'),
         ('return', 'extracted_metadata.filename'),
+        )
+    response = requests.get(url+'/v1/environments/'+environment_id+'/collections/'+collection_id+'/query', params=params, auth=('apikey', apikey))
+    data = response.json()
+    df = json_normalize(data['results'])
+    print(df)
+
+if args[1] == 'search':
+    keyword = args[2]
+    params = (
+        ('version', '2019-04-30'),
+        ('return', 'extracted_metadata.filename'),
+        ('natural_language_query', keyword),
         )
     response = requests.get(url+'/v1/environments/'+environment_id+'/collections/'+collection_id+'/query', params=params, auth=('apikey', apikey))
     data = response.json()

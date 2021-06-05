@@ -20,6 +20,7 @@ discovery = DiscoveryV1(
     authenticator=authenticator
     )
 
+# View All documents list in your collection
 if args[1] == 'docslist':
     params = (
         ('version', '2019-04-30'),
@@ -30,6 +31,7 @@ if args[1] == 'docslist':
     df = json_normalize(data['results'])
     print(df)
 
+# Search keyword
 if args[1] == 'search':
     keyword = args[2]
     params = (
@@ -42,6 +44,21 @@ if args[1] == 'search':
     df = json_normalize(data['results'])
     print(df)
 
+# Search keyword and output is JSON Format 
+if args[1] == 'searchjson':
+    keyword = args[2]
+    params = (
+        ('version', '2019-04-30'),
+        ('return', 'extracted_metadata.filename'),
+        ('natural_language_query', keyword),
+        )
+    response = requests.get(url+'/v1/environments/'+environment_id+'/collections/'+collection_id+'/query', params=params, auth=('apikey', apikey))
+    data = response.json()
+    df = json_normalize(data['results'])
+    df_json=df.to_json(indent=2)
+    print(df_json)
+
+# Add(Upload) document
 if args[1] == 'add':
     file_path = args[2]
     discovery.set_service_url(url)
@@ -49,6 +66,7 @@ if args[1] == 'add':
         add_doc = discovery.add_document(environment_id, collection_id, file=fileinfo).get_result()
     print(json.dumps(add_doc, indent=2))
 
+# Update document
 if args[1] == 'update':
     file_path = args[2]
     document_id = args[3]
@@ -57,6 +75,7 @@ if args[1] == 'update':
         add_doc = discovery.update_document(environment_id, collection_id, document_id, file=fileinfo).get_result()
     print(json.dumps(add_doc, indent=2))
 
+# Delete document
 if args[1] == 'delete':
     document_id = args[2]    
     discovery.set_service_url(url)

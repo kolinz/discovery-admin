@@ -72,6 +72,36 @@ $ python discovery-docs-tool-test.py search "Watson Health"
 2    8daac09bce0a793064a8d9bbbbbbbbbb_b                    0.000000               1.473007            sample-docs.json
 ```
 
+### Search : Natural Language Query (Output format : JSON) 
+#### example
+```
+$ python discovery-docs-tool-test.py searchjson "Watson Health"
+```
+#### output example
+```
+{
+  "id":{
+    "0":"90652dbc-966a-401d-99a8-xxxxxxxxxxxx",
+    "1":"b4cdefca-0c17-4d08-a33a-aaaaaaaaaaaa",
+    "2":"8daac09bce0a793064a8d9bbbbbbbbbb_b"
+  },
+  "result_metadata.confidence":{
+    "0":0.3751451698,
+    "1":0.3751451698,
+    "2":0.0                                                                                                                                                         },
+  "result_metadata.score":{
+    "0":4.428401,
+    "1":4.428401,
+    "2":1.4730074
+  },
+  "extracted_metadata.filename":{
+    "0":"sample.html",
+    "1":"sample.html",
+    "2":"sample-docs.json"
+  }
+}
+
+```
 ### Delete a document
 Run the command. Please get a document-id from "Get a list of documents" command.
 ```
@@ -79,7 +109,7 @@ $ python discovery-docs-tool.py delete document-id
 ```
 #### example
 ```
-$ python discovery-docs-tool.py delete f627e521-d9fe-458d-xxxxxxxxxxxxx
+$ python discovery-docs-tool.py delete 8daac09bce0a793064a8d9bbbbbbbbbb_b
 ```
 ### Add(Upload) a document
 Run the command.
@@ -100,5 +130,5 @@ $ python discovery-docs-tool.py update file-path document-id
 ```
 #### example
 ```
-$ python discovery-docs-tool.py update /home/user1/sample.json b4cdefca-0c17-ffffffffffffffffffffff
+$ python discovery-docs-tool.py update /home/user1/sample.json 90652dbc-966a-401d-99a8-xxxxxxxxxxxx
 ```

@@ -1,5 +1,9 @@
 # discovery-admin
-IBM Watson Discovery document management tool. Currently, add & delete function has been implemented.
+IBM Watson Discovery document management tool. 
+- View Documents list in your collection
+- Delete a document
+- Add (upload) a document
+- Update a document
 
 ## Confirmed environment
 ```

@@ -1,6 +1,7 @@
 # discovery-admin
 IBM Watson Discovery document management tool. 
 - View Documents list in your collection
+- Search : Natural Language Query 
 - Delete a document
 - Add (upload) a document
 - Update a document
@@ -52,6 +53,23 @@ $ python discovery-docs-tool.py docslist
 5  dbd41633-354b-eeeeeeeeeeeeeeeeeeeeee                           0                      1                    ジェイソン.json
 6  b4cdefca-0c17-ffffffffffffffffffffff                           0                      1                   sample.html
 7  8a1e13db-0a3f-gggggggggggggggggggggg                           0                      1               jsonsample.json
+```
+
+### Search : Natural Language Query 
+Run the command.
+```
+$ python discovery-docs-tool-test.py search keyword
+```
+#### example
+```
+$ python discovery-docs-tool-test.py search "Watson Health"
+```
+#### output example
+```
+                                     id  result_metadata.confidence  result_metadata.score extracted_metadata.filename
+0  90652dbc-966a-401d-99a8-xxxxxxxxxxxx                    0.375145               4.428401                 sample.html
+1  b4cdefca-0c17-4d08-a33a-aaaaaaaaaaaa                    0.375145               4.428401                 sample.html
+2    8daac09bce0a793064a8d9bbbbbbbbbb_b                    0.000000               1.473007            sample-docs.json
 ```
 
 ### Delete a document

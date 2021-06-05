@@ -32,18 +32,6 @@ collection_id = "your collection_id in Watson discovery"
 - environment_id and collection_id >> Copy the values from "View API Details" in your collection.
 
 ## Usage
-### Add(Upload) a document
-Run the command.
-```
-$ python discovery-docs-tool.py add file-path
-```
-#### example
-```
-$ python discovery-docs-tool.py add /home/user1/sample.json
-```
-#### Error information
-- The Error occurred in PDF with Japanese file name. But I was able to upload a JSON or HTML file with a Japanese file name.
-
 ### Get a list of documents
 Run the command.
 ```
@@ -70,4 +58,25 @@ $ python discovery-docs-tool.py delete document-id
 #### example
 ```
 $ python discovery-docs-tool.py delete f627e521-d9fe-458d-xxxxxxxxxxxxx
+```
+### Add(Upload) a document
+Run the command.
+```
+$ python discovery-docs-tool.py add file-path
+```
+#### example
+```
+$ python discovery-docs-tool.py add /home/user1/sample.json
+```
+#### Error information
+- The Error occurred in PDF with Japanese file name. But I was able to upload a JSON or HTML file with a Japanese file name.
+
+### Update a document
+Run the command.
+```
+$ python discovery-docs-tool.py update file-path document-id
+```
+#### example
+```
+$ python discovery-docs-tool.py update /home/user1/sample.json b4cdefca-0c17-ffffffffffffffffffffff
 ```

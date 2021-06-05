@@ -3,7 +3,6 @@ import os
 import json
 import sys
 import requests
-import pandas
 import settings
 from ibm_watson import DiscoveryV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
@@ -36,6 +35,14 @@ if args[1] == 'add':
     discovery.set_service_url(url)
     with open(file_path) as fileinfo:
         add_doc = discovery.add_document(environment_id, collection_id, file=fileinfo).get_result()
+    print(json.dumps(add_doc, indent=2))
+
+if args[1] == 'update':
+    file_path = args[2]
+    document_id = args[3]
+    discovery.set_service_url(url)
+    with open(file_path) as fileinfo:
+        add_doc = discovery.update_document(environment_id, collection_id, document_id, file=fileinfo).get_result()
     print(json.dumps(add_doc, indent=2))
 
 if args[1] == 'delete':

@@ -1,6 +1,7 @@
 # discovery-admin
 IBM Watson Discovery document management tool. 
 - View Documents list in your collection
+- List training data
 - Search : Natural Language Query 
 - Delete a document
 - Add (upload) a document
@@ -54,9 +55,20 @@ $ python discovery-docs-tool.py docslist
 6  b4cdefca-0c17-ffffffffffffffffffffff                           0                      1                   sample.html
 7  8a1e13db-0a3f-gggggggggggggggggggggg                           0                      1               jsonsample.json
 ```
+### List training data
+Run a command.
+```
+$ python discovery-docs-tool.py traindata
+```
+#### output example
+Lists the training data for the specified collection.
+```
+                        collection_id                       environment_id                                            queries
+0  b2abe765-b072-4806-8c7a-collection  52c60672-bf2a-469b-96dc-environment  [{'natural_language_query': 'Watson Health', '...
+```
 
 ### Search : Natural Language Query 
-Run the command.
+Run a command.
 ```
 $ python discovery-docs-tool-test.py search keyword
 ```
@@ -103,7 +115,7 @@ $ python discovery-docs-tool-test.py searchjson "Watson Health"
 
 ```
 ### Delete a document
-Run the command. Please get a document-id from "Get a list of documents" command.
+Run a command. Please get a document-id from "Get a list of documents" command.
 ```
 $ python discovery-docs-tool.py delete document-id
 ```
@@ -112,7 +124,7 @@ $ python discovery-docs-tool.py delete document-id
 $ python discovery-docs-tool.py delete 8daac09bce0a793064a8d9bbbbbbbbbb_b
 ```
 ### Add(Upload) a document
-Run the command.
+Run a command.
 ```
 $ python discovery-docs-tool.py add file-path
 ```
@@ -124,7 +136,7 @@ $ python discovery-docs-tool.py add /home/user1/sample.json
 - The Error occurred in PDF with Japanese file name. But I was able to upload a JSON or HTML file with a Japanese file name.
 
 ### Update a document
-Run the command.
+Run a command.
 ```
 $ python discovery-docs-tool.py update file-path document-id
 ```

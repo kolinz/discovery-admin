@@ -31,6 +31,16 @@ if args[1] == 'docslist':
     df = json_normalize(data['results'])
     print(df)
 
+# List training data
+if args[1] == 'traindata':
+    params = (
+        ('version', '2019-04-30'),
+        )
+    response = requests.get(url+'/v1/environments/'+environment_id+'/collections/'+collection_id+'/training_data', params=params, auth=('apikey', apikey))
+    data = response.json()
+    df = json_normalize(data)
+    print(df)
+
 # Search keyword
 if args[1] == 'search':
     keyword = args[2]

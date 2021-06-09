@@ -1,3 +1,5 @@
+[日本語版はこちら](https://github.com/kolinz/discovery-admin/blob/main/README-ja.md)
+
 # discovery-admin
 IBM Watson Discovery document management tool. 
 - View Documents list in your collection
